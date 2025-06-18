@@ -22,12 +22,11 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
+/*function playRound(humanChoice, computerChoice) {
     let humanAnswer = humanChoice.toLowerCase();
 
     console.log("You chose " + humanAnswer);
     console.log("computer chose " + computerChoice);
-
 
     //Tie condition
     if (humanAnswer === computerChoice) {
@@ -38,27 +37,102 @@ function playRound(humanChoice, computerChoice) {
     if (humanAnswer === "rock" && computerChoice === "scissor") {
         console.log("You win this round!");
         humanScore++;
+        return humanScore;
     } else  if (humanAnswer === "paper" && computerChoice === "rock") {
         console.log("You win this round!");
         humanScore++;
+        return humanScore;
     } else  if (humanAnswer === "scissor" && computerChoice === "paper") {
         console.log("You win this round!");
         humanScore++;
+        return humanScore;
     //Computer Wins/player Loses
     } else  if (computerChoice === "rock" && humanAnswer === "scissor") {
         console.log("You lose this round!");
         computerScore++;
+        return computerScore;
     } else  if (computerChoice === "paper" && humanAnswer === "rock") {
         console.log("You lose this round!");
         computerScore++;
+        return computerScore;
     } else  if (computerChoice === "scissor" && humanAnswer === "paper") {
         console.log("You lose this round!");
         computerScore++;
+        return computerScore;
+    } else {
+        console.log("Invalid Response");
     }
-    return humanScore, computerScore;
-}
+}*/
 
-const humanAnswer = getHumanChoice();
+/*const humanAnswer = getHumanChoice();
 const computerAnswer = getComputerChoice();
 
-playRound(humanAnswer, computerAnswer);
+playRound(humanAnswer, computerAnswer);*/
+
+
+function playGame() {
+
+    for (let i = 0; i < 5; i++) {
+        const humanAnswer = getHumanChoice();
+        const computerAnswer = getComputerChoice();
+
+        playRound(humanAnswer, computerAnswer);
+
+    }
+
+        function playRound(humanChoice, computerChoice) {
+
+        let humanAnswer = humanChoice.toLowerCase();
+
+        console.log("You chose " + humanAnswer);
+        console.log("computer chose " + computerChoice);
+
+        //Tie condition
+        if (humanAnswer === computerChoice) {
+            console.log("Tie!");
+        }
+
+        //Player Wins/Computer loses
+        if (humanAnswer === "rock" && computerChoice === "scissor") {
+            console.log("You win this round!");
+            humanScore++;
+            return humanScore;
+        } else  if (humanAnswer === "paper" && computerChoice === "rock") {
+            console.log("You win this round!");
+            humanScore++;
+            return humanScore;
+        } else  if (humanAnswer === "scissor" && computerChoice === "paper") {
+            console.log("You win this round!");
+            humanScore++;
+            return humanScore;
+        //Computer Wins/player Loses
+        } else  if (computerChoice === "rock" && humanAnswer === "scissor") {
+            console.log("You lose this round!");
+            computerScore++;
+            return computerScore;
+        } else  if (computerChoice === "paper" && humanAnswer === "rock") {
+            console.log("You lose this round!");
+            computerScore++;
+            return computerScore;
+        } else  if (computerChoice === "scissor" && humanAnswer === "paper") {
+            console.log("You lose this round!");
+            computerScore++;
+            return computerScore;
+        }
+    }
+
+    if (computerScore === humanScore) {
+        console.log("Draw! No one wins!");
+    } else if (computerScore > humanScore) {
+        console.log("The Bot Wins!");
+    } else if (humanScore > computerScore) {
+        console.log("You Won!");
+    }
+
+}
+
+playGame();
+
+
+
+
