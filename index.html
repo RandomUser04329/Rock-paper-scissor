@@ -9,15 +9,72 @@
     </head>
     
     <body> 
+
+        <button id = "playGame">play</button>
+
         <div class = "startMenu">
-           <!-- <h1 id = "pageTitle"> Rock Paper Scissors! <br> vs AI</h1> -->
-           <!-- <button id = "playBTN"> Start</button> -->
+
+           <h1 id = "pageTitle"> Rock Paper Scissors! <br> vs AI</h1>
+           <button id = "playBTN">Start</button>
+
         </div>
         
         <div class = "choiceMenu">
+            <h1 id = "titleHeading">Choose how many rounds you wish to play..</h1>
+
+            <div class = "buttonCont">
+                <button id = "round2">2</button>
+                <button id = "round4">4</button>
+                <button id = "round6">6</button>
+            </div>
+
+            <div class = "exitBox">
+                <button id = "exitBTN">Back to Start</button>
+            </div>
 
         </div>
 
+        <div class = "gameScreen">
+            <h1 id = "gameText">The Computer has chosen its object.. <br> choose your object. </h1>
+            <div class = "choiceBox"> 
+                <button id = "rock">
+                    <img src = "images/rock.png" alt = "rock image" id = "rock-image">
+                </button>
+
+                <button id = "paper">
+                    <img src = "images/paper.png" alt = "paper image" id = "paper-image">
+                </button>
+
+                <button id = "scissor">
+                    <img src = "images/scissor.png" alt = "scissor image" id = "scissor-image">
+                </button>
+            </div>
+        </div>
+
+        <div class = "winLoseRoundScreen">
+            <div class = "contentBox">
+                <h1 id = "userWinsText">You Win the round!</h1>
+                <h1 id = "tieText">Tie! No one wins.</h1>
+                <h1 id = "computerWinsText">You lose this round.</h1>
+
+                <button id = "nextRoundBTN">Next round</button>
+            </div>
+        </div>
+         
+        <!--
+        <div class = "gameOverScreen">
+            <h1 id = "gameOverText">Game over!</h2>
+            <h2 id = "finalscoreText">Final Score:</h2>
+            <h2 id = "humanScore">Your score: </h2>
+            <h2 id = "computerScore">AI Score: </h2>
+            <h2 id = "userWinsText">You Won!</h2>
+            <h2 id = "computerWinsText">You Lost.</h2>
+            <h2 id = "tieText">its a Tie.</h2>
+            <h2 id = "tryAgainText">Try again?</h2>
+            <button id = "playAgainBTN">Play Again</button>
+            <button id = "exitGameBTN">Exit Game</button>
+        </div>
+        -->
 
 
     </body>

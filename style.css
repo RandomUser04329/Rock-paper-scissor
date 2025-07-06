@@ -1,6 +1,6 @@
 
 * {
-    /*outline: 2px solid red;*/
+    outline: 2px solid red;
 }
 
 body {
@@ -14,11 +14,33 @@ body {
     margin: 0;
 }
 
+#playGame { 
+    font-size: 28px;
+    background-color: #5eff00;
+    border-radius: 30px;
+    box-shadow: 0 5px gray;
+    border: 0;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    cursor: pointer;
+}
 
-/* START MENU
+#playGame:hover {
+    background-color: #66db00;          
+}
 
-.startMenu {
-    display: flex;
+#playGame:active {
+    background-color: #4ba000;
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
+
+
+/* PAGESETUP */
+
+.startMenu, .choiceMenu, .gameScreen, .winLoseRoundScreen{
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -27,6 +49,12 @@ body {
     height: 500px;
 
 }
+
+.startMenu.active, .choiceMenu.active, .gameScreen.active, .winLoseRoundScreen.active{
+    display: flex;
+}
+
+/* START MENU ITEM STYLES */
 
 #pageTitle { 
     display: flex;
@@ -56,5 +84,204 @@ body {
     transform: translateY(2px);
 }
 
+/* CHOICE MENU ITEM STYLES */
 
-*/
+#titleHeading {
+    text-align: center;
+}
+
+.buttonCont {
+    display: flex;
+    width: 350px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#round2, #round4, #round6 {
+    font-size: 28px;
+    border-radius: 30px;
+    box-shadow: 0 5px gray;
+    border: 0;
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    cursor: pointer;
+}
+
+#round2 {
+    background-color: #5eff00;
+}
+
+#round4 {
+    background-color: #fbff00;
+}
+
+#round6 {
+    background-color: #ff5500;
+}
+
+#round2:hover {
+    background-color: #66db00;
+}
+
+#round4:hover {
+    background-color: #d2d600;
+}
+
+#round6:hover {
+    background-color: #c44100;
+}
+
+#round2:active, #round4:active, #round6:active #exitBTN:active {
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
+
+#round2:active {
+    background-color: #4ba000;
+}
+
+#round4:active {
+    background-color: #b8b800;
+}
+
+#round6:active {
+    background-color: #a02f00;
+}
+
+
+.exitBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+}
+
+#exitBTN {
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    width: 100px;
+    height: 40px;
+    box-shadow: 0 5px gray;
+    background-color: #75e3ff;
+    cursor: pointer;
+}
+#exitBTN:hover {
+    background-color: #00a1c9;
+}
+
+#exitBTN:active {
+    background-color:  #006c87;
+}
+
+/* GAME SCREEN STYLES */
+
+.gameScreen {
+    gap: 10px;
+}
+
+#gameText {
+    display: flex;
+    text-align: center;
+    margin: 0;
+}
+
+.choiceBox {
+    display: flex;
+    width: 350px;
+    height: 100px;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+#rock-image, #paper-image, #scissor-image {
+    width: 100px;
+    height: 100px;
+}
+
+#rock, #paper, #scissor {
+    width: 250px;
+    height: 100px;
+    background-color: #dbdbdb;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 5px gray;
+    cursor: pointer;
+}
+
+#rock:hover, #paper:hover, #scissor:hover {
+    background-color: #9d9d9d;
+}
+
+#rock:active, #paper:active, #scissor:active {
+    background-color: #5f5f5f;
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
+
+
+
+/* WIN/LOSE ROUND SCREEN STYLES */
+.contentBox {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    gap: 10px;
+}
+
+.contentBox.active {
+    display:flex;
+}
+
+#userWinsText, #computerWinsText, #tieText{
+    font-size: 28px;
+    display: none;
+    text-align: center;
+    margin: 0;
+}
+
+#userWinsText.active, #computerWinsText.active, #tieText.active, #nextRoundBTN.active {
+    display: flex;
+}
+
+#nextRoundBTN {
+    display: none;
+    width: 150px;
+    height: 100px;
+    background-color: #dbdbdb;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 5px gray;
+    cursor: pointer;
+}
+
+#nextRoundBTN:hover { 
+    background-color: #9d9d9d;
+}
+
+#nextRoundBTN:active {
+    display: flex; 
+    background-color: #5f5f5f;
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
+
+
+/* WIN/LOSE GAME SCREEN STYLES */
+
+
+
+
+
