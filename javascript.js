@@ -15,7 +15,7 @@ startGame.addEventListener("click", () => {
 
 //ENABLES THE PAGES 
 function showPage(pageClass) {
-    document.querySelectorAll(".startMenu, .choiceMenu, .gameScreen, .winLoseRoundScreen").forEach(page => {
+    document.querySelectorAll(".startMenu, .choiceMenu, .gameScreen, .winLoseRoundScreen, .gameOverScreen").forEach(page => {
         page.classList.remove("active");
     });
 
@@ -44,20 +44,20 @@ function choiceMenu() {
     showPage(".choiceMenu");
 
     button2.addEventListener("click", () => {
-        return rockPaperScissorGame(2);
-    });
+        rockPaperScissorGame(2);
+    }, {once: true});
 
     button4.addEventListener("click", () => {
-        return rockPaperScissorGame(4);
-    });
+        rockPaperScissorGame(4);
+    }, {once: true});
 
     button6.addEventListener("click", () => {
-        return rockPaperScissorGame(6);
-    });
+        rockPaperScissorGame(6);
+    }, {once: true});
 
     exitBtn.addEventListener("click", () => {
-        return mainMenu();
-    });
+        mainMenu();
+    }, {once: true});
 
 }
 
@@ -114,6 +114,7 @@ function getHumanChoice(callback) {
 
 //THE MAIN GAME FUNCTION
 
+// FOR THE WINLOSE ROUND SCREEN
 const winLoseScreen = document.querySelector(".winLoseRoundScreen");
 const contentBox = document.querySelector(".contentBox");
 const userWinsRoundText = document.querySelector("#userWinsText");
@@ -121,15 +122,32 @@ const tieText = document.querySelector("#tieText");
 const computerWinsRoundText = document.querySelector("#computerWinsText");
 const nextBTN = document.querySelector("#nextRoundBTN");
 
+// FOR THE GAME OVER SCREEN
+const gameOverScreen = document.querySelector(".gameOverScreen");
+const gameEndContentBox = document.querySelector(".gameEndBox");
+const gameOverText = document.querySelector("#gameOverText");
+const finalScoreText = document.querySelector("#finalScoreText");
+const playerScoreText = document.querySelector("#humanScore");
+const computerScoreText = document.querySelector("#computerScore");
+const playerWinsText = document.querySelector("#userWinsFinalText");
+const computerWinsText = document.querySelector("#computerWinsFinalText");
+const gameTieText = document.querySelector("#gameTieText");
+const playAgainText = document.querySelector("#tryAgainText");
 
+const endBTNBox = document.querySelector(".endBTNBox");
+const playAgainBTN = document.querySelector("#playAgainBTN");
+const exitGameBTN = document.querySelector("#exitGameBTN");
+
+
+// Initiate scores
 let humanScore = 0;
 let computerScore = 0;
-
 
 
 //SHOWS THE RESULT TEXTS
 function showResultText(textClass) {
 
+    // FOR THE WIN/LOSE ROUND SCREENS
     contentBox.classList.remove("active");
     userWinsRoundText.classList.remove("active");
     computerWinsRoundText.classList.remove("active");
@@ -143,6 +161,30 @@ function showResultText(textClass) {
     nextBTN.classList.add("active");
 }
 
+
+//FOR THE END GAME TEXTS/BUTTONS
+function showEndGameTexts(textClass) {
+    gameEndContentBox.classList.remove("active");
+    gameOverText.classList.remove("active");
+    finalScoreText.classList.remove("active");
+    playerScoreText.classList.remove("active");
+    computerScoreText.classList.remove("active");
+    playerWinsText.classList.remove("active");
+    computerWinsText.classList.remove("active");
+    gameTieText.classList.remove("active");
+    playAgainText.classList.remove("active");
+
+    const text = document.querySelector(textClass);
+    if (text) { 
+        text.classList.add("active");
+    }
+    gameEndContentBox.classList.add("active");
+    endBTNBox.classList.add("active");
+    playAgainBTN.classList.add("active");
+    exitGameBTN.classList.add("active");
+}
+
+
 // Clears the current result texts before showing new results
 function clearResultTexts() {
     userWinsRoundText.classList.remove("active");
@@ -151,6 +193,20 @@ function clearResultTexts() {
     nextBTN.classList.remove("active");
 }
 
+function clearEndResultTexts() {
+    gameOverText.classList.remove("active");
+    finalScoreText.classList.remove("active");
+    playerScoreText.classList.remove("active");
+    computerScoreText.classList.remove("active");
+    playerWinsText.classList.remove("active");
+    computerWinsText.classList.remove("active");
+    gameTieText.classList.remove("active");
+    playAgainText.classList.remove("active");
+    endBTNBox.classList.remove("active");
+    playAgainBTN.classList.remove("active");
+    exitGameBTN.classList.remove("active");
+    gameEndContentBox.classList.remove("active");
+}
 
 function rockPaperScissorGame(int) {
     let currentRound = 0;
@@ -158,7 +214,7 @@ function rockPaperScissorGame(int) {
     // Clears previous results before a new round
     function newRound() {
         if (currentRound >= int) {
-            return;
+            return gameOver(humanScore, computerScore);
         }
         clearResultTexts();
         showPage(".gameScreen");
@@ -199,13 +255,44 @@ function rockPaperScissorGame(int) {
             showResultText("#computerWinsText");
             computerScore++;
         }
-        
+
+    }
+
+    function gameOver(userScore, computerScore) {
+        clearResultTexts();
+        showPage(".gameOverScreen");
+        showEndGameTexts("#gameOverText");
+        showEndGameTexts("#finalScoreText");
+        showEndGameTexts("#humanScore");
+        showEndGameTexts("#computerScore");
+
+        if (userScore > computerScore) {
+            showEndGameTexts("#userWinsFinalText"); 
+        } else if (userScore < computerScore) {
+            showEndGameTexts("#computerWinsFinalText");
+        } else {
+            showEndGameTexts("#gameTieText");
+        }
+
+        playAgainBTN.addEventListener("click", () => {
+            humanScore = 0;
+            computerScore = 0;
+            clearEndResultTexts();
+            choiceMenu();
+        }, {once:true});
+
+        exitGameBTN.addEventListener("click",() => {
+            showPage(".startMenu");
+            humanScore = 0;
+            computerScore = 0;
+            clearEndResultTexts();
+        }, {once:true});
     }
 
     newRound();
 
 }
 
-//WIN/LOSE 
+
 
 

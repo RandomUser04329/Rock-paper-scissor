@@ -1,7 +1,8 @@
 
-* {
+*/* {
     outline: 2px solid red;
 }
+*/
 
 body {
     font-family:Arial, Helvetica, sans-serif;
@@ -39,7 +40,7 @@ body {
 
 /* PAGESETUP */
 
-.startMenu, .choiceMenu, .gameScreen, .winLoseRoundScreen{
+.startMenu, .choiceMenu, .gameScreen, .winLoseRoundScreen {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -50,7 +51,7 @@ body {
 
 }
 
-.startMenu.active, .choiceMenu.active, .gameScreen.active, .winLoseRoundScreen.active{
+.startMenu.active, .choiceMenu.active, .gameScreen.active, .winLoseRoundScreen.active, .gameOverScreen.active {
     display: flex;
 }
 
@@ -280,7 +281,131 @@ body {
 
 
 /* WIN/LOSE GAME SCREEN STYLES */
+.gameOverScreen {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 500px;
+    height: 500px;
 
+}
+
+.gameEndBox {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 400px;
+    height: 400px;
+    gap: 8px;
+}
+
+.gameEndBox.active {
+    display: flex;
+}
+
+#gameOverText {
+    font-size: 54px;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+    margin: 0;
+}
+
+#finalScoreText {
+    font-size: 28px;
+    display: none;
+    text-align: center;
+    margin: 0;
+}
+
+#humanScore, #computerScore {
+    font-size: 18px;
+    display: none;
+    text-align:left;
+    margin: 0;
+}
+
+#userWinsFinalText, #computerWinsFinalText, #gameTieText {
+    font-size: 36px;
+    display: none;
+    text-align: center;
+    margin: 0;
+}
+
+#tryAgainText {
+    font-size: 24px;
+    display: none;
+    text-align: center;
+    margin: 0;
+}
+
+#gameOverText.active, #finalScoreText.active, #humanScore.active, #computerScore.active, 
+#userWinsFinalText.active, #computerWinsFinalText.active, #gameTieText.active, #tryAgainText.active,
+.endBTNBox.active, #playAgainBTN.active, #exitGameBTN.active, .gameOverScreen.active {
+    display: flex;
+}
+
+.endBTNBox {
+    display: none;
+    width: 250px;
+    height: 250px;
+    gap: 8px;
+    justify-content: center;
+}
+
+#playAgainBTN {
+    display: none;
+    width: 150px;
+    height: 100px;
+    background-color: #dbdbdb;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 5px gray;
+    cursor: pointer;
+}
+
+#playAgainBTN:hover { 
+    background-color: #9d9d9d;
+}
+
+#playAgainBTN:active {
+    display: flex; 
+    background-color: #5f5f5f;
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
+
+#exitGameBTN {
+    display: none;
+    width: 150px;
+    height: 100px;
+    background-color: #dbdbdb;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0 5px gray;
+    cursor: pointer;
+}
+
+#exitGameBTN:hover { 
+    background-color: #9d9d9d;
+}
+
+#exitGameBTN:active {
+    display: flex; 
+    background-color: #5f5f5f;
+    box-shadow: 0 2px gray;
+    transform: translateY(2px);
+}
 
 
 
